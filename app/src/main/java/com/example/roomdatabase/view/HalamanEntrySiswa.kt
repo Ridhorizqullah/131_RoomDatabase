@@ -25,9 +25,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.roomdatabase.view.route.DestinasiEntry
-import com.example.roomdatabase.viewmodel.DetailSiswa
 import com.example.roomdatabase.viewmodel.EntryViewModel
-import com.example.roomdatabase.viewmodel.UIStateSiswa
 import com.example.roomdatabase.viewmodel.provider.PenyediaViewModel
 import com.example.roomdatabase.R
 import kotlinx.coroutines.launch
@@ -70,8 +68,8 @@ fun EntrySiswaScreen(
 
 @Composable
 fun EntrySiswaBody(
-    uiStateSiswa: UIStateSiswa,
-    onSiswaValueChange: (DetailSiswa) -> Unit,
+    uiStateSiswa: EntryViewModel.UIStateSiswa,
+    onSiswaValueChange: (EntryViewModel.DetailSiswa) -> Unit,
     onSaveClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -98,9 +96,9 @@ fun EntrySiswaBody(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FormInputSiswa(
-    detailSiswa: DetailSiswa,
+    detailSiswa: EntryViewModel.DetailSiswa,
     modifier: Modifier = Modifier,
-    onValueChange: (DetailSiswa) -> Unit = {},
+    onValueChange: (EntryViewModel.DetailSiswa) -> Unit = {},
     enabled: Boolean = true
 ) {
     Column(
