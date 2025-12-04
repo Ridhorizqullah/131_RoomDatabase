@@ -108,7 +108,7 @@ fun ListSiswa(
     itemSiswa: List<Siswa>,
     modifier: Modifier = Modifier
 ) {
-    LazyColumn(modifier = Modifier) {
+    LazyColumn(modifier = modifier) {  // ← di sini: 'modifier' (kecil), bukan 'Modifier' (besar)
         items(items = itemSiswa, key = { it.id }) { person ->
             DataSiswa(
                 siswa = person,

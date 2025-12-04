@@ -24,9 +24,9 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.myroomsatu.viewmodel.provider.PenyediaViewModel
 import com.example.roomdatabase.view.route.DestinasiEntry
 import com.example.roomdatabase.viewmodel.EntryViewModel
-import com.example.roomdatabase.viewmodel.provider.PenyediaViewModel
 import com.example.roomdatabase.R
 import kotlinx.coroutines.launch
 
@@ -35,7 +35,7 @@ import kotlinx.coroutines.launch
 fun EntrySiswaScreen(
     navigateBack: () -> Unit,
     modifier: Modifier = Modifier,
-    viewModel: EntryViewModel = viewModel(factory = PenyediaViewModel.Factory)
+    viewModel: EntryViewModel = viewModel(factory = PenyediaViewModel .Factory)
 ) {
     val coroutineScope = rememberCoroutineScope()
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
