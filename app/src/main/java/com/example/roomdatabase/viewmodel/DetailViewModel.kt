@@ -1,5 +1,6 @@
 package com.example.roomdatabase.viewmodel
 
+
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -18,7 +19,7 @@ class DetailViewModel (
     private val idSiswa: Int = checkNotNull(savedStateHandle[DestinasiDetailSiswa.itemIdArg])
 
     val uiDetailState: StateFlow<DetailSiswaUiState> =
-        repositoriSiswa.getAllSiswaStream(idSiswa)
+        repositoriSiswa.getSiswaStream(idSiswa)
             .filterNotNull()
             .map {
                 DetailSiswaUiState(detailSiswa = it.toDetailSiswa())

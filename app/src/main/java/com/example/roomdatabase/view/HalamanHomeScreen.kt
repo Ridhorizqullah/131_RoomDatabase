@@ -33,7 +33,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.myroomsatu.viewmodel.provider.PenyediaViewModel
+import com.example.roomdatabase.viewmodel.provider.PenyediaViewModel
 import com.example.roomdatabase.room.Siswa
 import com.example.roomdatabase.view.route.DestinasiHome
 import com.example.roomdatabase.viewmodel.HomeViewModel
@@ -44,6 +44,7 @@ import com.example.roomdatabase.R
 fun HomeScreen(
     navigateToItemEntry: () -> Unit,
     modifier: Modifier = Modifier,
+    navigateToItemUpdate: (Int) -> Unit,
     viewModel: HomeViewModel = viewModel(factory = PenyediaViewModel .Factory)
 ) {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
@@ -73,6 +74,7 @@ fun HomeScreen(
         val uiStateSiswa by viewModel.homeUiState.collectAsState()
         BodyHome(
             itemSiswa = uiStateSiswa.listSiswa,
+            onSiswaClick = navigateToItemUpdate,
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize()
@@ -83,7 +85,7 @@ fun HomeScreen(
 @Composable
 fun BodyHome(
     itemSiswa: List<Siswa>,
-    onSiswaClick: (Siswa) -> Unit,
+    onSiswaClick: (Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -99,7 +101,7 @@ fun BodyHome(
         } else {
             ListSiswa(
                 itemSiswa = itemSiswa,
-                onSiswaClick = {onSiswaClick(it.id)}
+                onSiswaClick = {onSiswaClick(it.id)},
                 modifier = Modifier.padding(horizontal = dimensionResource(id = R.dimen.padding_small))
 
             )
